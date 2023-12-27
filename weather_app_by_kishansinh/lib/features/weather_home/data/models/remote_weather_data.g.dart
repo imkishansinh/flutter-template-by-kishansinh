@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'weather_data.dart';
+part of 'remote_weather_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-WeatherData _$WeatherDataFromJson(Map<String, dynamic> json) => WeatherData(
+RemoteWeatherData _$RemoteWeatherDataFromJson(Map<String, dynamic> json) =>
+    RemoteWeatherData(
       coord: Coord.fromJson(json['coord'] as Map<String, dynamic>),
       weather: (json['weather'] as List<dynamic>)
           .map((e) => Weather.fromJson(e as Map<String, dynamic>))
@@ -24,7 +25,7 @@ WeatherData _$WeatherDataFromJson(Map<String, dynamic> json) => WeatherData(
       cod: json['cod'] as int,
     );
 
-Map<String, dynamic> _$WeatherDataToJson(WeatherData instance) =>
+Map<String, dynamic> _$RemoteWeatherDataToJson(RemoteWeatherData instance) =>
     <String, dynamic>{
       'coord': instance.coord,
       'weather': instance.weather,
