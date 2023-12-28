@@ -1,5 +1,11 @@
+### result via lat lon
+
 GET https://api.openweathermap.org/data/2.5/weather?lat=23.1077411&lon=72.5477262&appid= HTTP/1.1
 
-###
+### result via city name
 
-GET https://api.openweathermap.org/data/2.5/weather?q=ranip&appid=
+GET https://api.openweathermap.org/data/2.5/weather?q=ranip&appid= HTTP/1.1
+
+### last x days forecast
+
+GET https://api.openweathermap.org/data/2.5/forecast?lat=23.1077411&lon=72.5477262&cnt=7&appid= HTTP/1.1
