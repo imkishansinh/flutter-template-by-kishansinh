@@ -1,1 +1,5 @@
-GET https://api.openweathermap.org/data/2.5/weather?lat=23.1077411&lon=72.5477262&appid={} HTTP/1.1
+GET https://api.openweathermap.org/data/2.5/weather?lat=23.1077411&lon=72.5477262&appid= HTTP/1.1
+
+###
+
+GET https://api.openweathermap.org/data/2.5/weather?q=ranip&appid=

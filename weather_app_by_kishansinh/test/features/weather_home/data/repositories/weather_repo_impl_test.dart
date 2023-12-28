@@ -18,7 +18,7 @@ void main() {
 
       // Call the getWeather method with a valid latitude and longitude.
       final weatherData =
-          await weatherRepoImpl.getWeather('23.1077411', '72.5477262');
+          await weatherRepoImpl.getWeather(23.1077411, 72.5477262);
 
       // Verify that the getWeather method returned a RemoteWeatherData object.
       expect(weatherData, isA<RemoteWeatherData>());
@@ -30,8 +30,11 @@ void main() {
       // Create an instance of the WeatherRepoImpl class.
       final weatherRepoImpl = WeatherRepoImpl('${dotenv.env['BASE_URL']}');
 
+      // Call the getWeather method with a valid latitude and longitude.
+      final weatherData = weatherRepoImpl.getWeather(0, 0);
+
       // Call the getWeather method with an invalid latitude or longitude.
-      expect(() => weatherRepoImpl.getWeather('', ''), throwsException);
+      expect(() => weatherData, throwsA(isA<Exception>()));
     });
 
     test(
@@ -42,7 +45,7 @@ void main() {
 
       // Call the getWeather method with a valid latitude and longitude.
       final weatherData =
-          await weatherRepoImpl.getWeather('23.1077411', '72.5477262');
+          await weatherRepoImpl.getWeather(23.1077411, 72.5477262);
 
       // Verify that the RemoteWeatherData object has the correct data.
       expect(weatherData.name, 'Adalaj');

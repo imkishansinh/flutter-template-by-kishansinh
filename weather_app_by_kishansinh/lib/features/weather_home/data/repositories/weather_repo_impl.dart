@@ -13,15 +13,15 @@ class WeatherRepoImpl implements WeatherRepo {
   WeatherRepoImpl(this.baseUrl);
 
   @override
-  Future<RemoteWeatherData> getWeather(String lat, String lon) async {
+  Future<RemoteWeatherData> getWeather(num lat, num lon) async {
     try {
-      if (lat.isEmpty || lon.isEmpty) throw Exception('Invalid coordinates');
+      if (lat <= 0 || lon <= 0) throw Exception('Invalid coordinates');
 
       Uri uri = Uri.parse(baseUrl);
 
       Map<String, dynamic> queryParameters = {};
-      queryParameters.putIfAbsent('lat', () => lat);
-      queryParameters.putIfAbsent('lon', () => lon);
+      queryParameters.putIfAbsent('lat', () => lat.toString());
+      queryParameters.putIfAbsent('lon', () => lon.toString());
       queryParameters.putIfAbsent('appid', () => dotenv.env['WEATHER_API_KEY']);
 
       uri = uri.replace(queryParameters: queryParameters);
@@ -36,6 +36,8 @@ class WeatherRepoImpl implements WeatherRepo {
       }
 
       throw Exception('Failed to load weather data');
+    } on TypeError catch (_) {
+      throw Exception('Type casting error');
     } catch (_) {
       rethrow;
     }
