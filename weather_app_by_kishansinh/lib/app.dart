@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        brightness: MediaQuery.of(context).platformBrightness,
         useMaterial3: true,
         colorSchemeSeed: Colors.purple,
         fontFamily: GoogleFonts.roboto().fontFamily,
