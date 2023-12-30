@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/weather_card.dart';
+import '../widgets/current_weather_details_widget.dart';
+import '../widgets/forecast_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,41 +11,58 @@ class HomePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            leading: const Icon(Icons.cloud_outlined),
+            leading: const SizedBox.shrink(),
+            floating: false,
+            pinned: true,
             expandedHeight: 200.0,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text('Home',
+              title: Text('Adalaj',
                   style: Theme.of(context).textTheme.headlineLarge),
               background: Container(color: Colors.transparent),
             ),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {
-                  // Handle search action
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.location_searching),
-                onPressed: () {
-                  // Handle current location action
-                },
-              ),
-            ],
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (_, index) {
-                return const ListTile(
-                  title: WeatherCard(
-                    city: 'Ahmedabad',
-                    celceius: 32.01,
-                    shortDescription: 'Bla bla bla',
-                    weatherIconName: '50d',
-                  ),
-                );
-              },
-              childCount: 5,
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 21),
+              child: CurrentWeatherDetailsWidget(
+                main: 'Smoke',
+                feelsLike: 28,
+                icon: '01d',
+                humanDate: 'Now',
+                temp: 28,
+                tempMax: 29,
+                tempMin: 28,
+              ),
+            ),
+          ),
+          const SliverPadding(padding: EdgeInsets.only(top: 12, bottom: 12)),
+          const SliverToBoxAdapter(
+            child: Divider(height: 1),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+              child: Text(
+                '4-day forecast',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontStyle: FontStyle.italic,
+                    ),
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 21),
+              child: Card(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ForecastItem(temp: 28, icon: '10n', humandDate: 'MON'),
+                  ForecastItem(temp: 28, icon: '10n', humandDate: 'TUE'),
+                  ForecastItem(temp: 28, icon: '10n', humandDate: 'WED'),
+                  ForecastItem(temp: 28, icon: '10n', humandDate: 'THU'),
+                ],
+              )),
             ),
           ),
         ],
