@@ -2,19 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'remote_weather_data.g.dart';
 
-/// Represents weather data for a specific location.
-///
-/// Example usage:
-/// ```dart
-/// final Map<String, dynamic> jsonData = {
-///   // ... (your JSON payload here)
-/// };
-///
-/// RemoteWeatherData weatherData = RemoteWeatherData.fromJson(jsonData);
-///
-/// print(weatherData.name); // Output: Adalaj
-/// print(weatherData.weather[0].main); // Output: Smoke
-/// ```
 @JsonSerializable()
 class RemoteWeatherData {
   final Coord coord;
@@ -88,17 +75,20 @@ class Weather {
 @JsonSerializable()
 class Main {
   final double temp;
-  final double feels_like;
-  final double temp_min;
-  final double temp_max;
+  @JsonKey(name: 'feels_like')
+  final double feelsLike;
+  @JsonKey(name: 'temp_min')
+  final double tempMin;
+  @JsonKey(name: 'temp_max')
+  final double tempMax;
   final int pressure;
   final int humidity;
 
   Main({
     required this.temp,
-    required this.feels_like,
-    required this.temp_min,
-    required this.temp_max,
+    required this.feelsLike,
+    required this.tempMin,
+    required this.tempMax,
     required this.pressure,
     required this.humidity,
   });
