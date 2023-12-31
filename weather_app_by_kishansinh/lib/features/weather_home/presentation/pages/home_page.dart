@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get_it/get_it.dart';
+import 'package:weather_app_by_kishansinh/features/weather_home/presentation/cubit/weather_home_cubit.dart';
 import '../widgets/current_weather_details_widget.dart';
 import '../widgets/forecast_item.dart';
 
@@ -10,78 +13,112 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () => Future.delayed(const Duration(seconds: 1)),
-        // Use this widget for blank state of the app
-        // child: Center(
-        //   child: Padding(
-        //     padding: const EdgeInsets.all(21.0),
-        //     child: Text(
-        //       'Tap on the search button to check the weather in your city',
-        //       style: Theme.of(context).textTheme.headlineLarge,
-        //       textAlign: TextAlign.center,
-        //     ),
-        //   ),
-        // ),
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              leading: const SizedBox.shrink(),
-              floating: false,
-              pinned: true,
-              expandedHeight: 200.0,
-              flexibleSpace: FlexibleSpaceBar(
-                title: Text('Adalaj',
-                    style: Theme.of(context).textTheme.headlineLarge),
-                background: Container(color: Colors.transparent),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 21),
-                child: CurrentWeatherDetailsWidget(
-                  main: 'Smoke',
-                  feelsLike: 28,
-                  iconUrl:
-                      'https://openweathermap.org/img/wn/10d@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}',
-                  humanDate: 'Now',
-                  temp: 28,
-                  tempMax: 29,
-                  tempMin: 28,
+        onRefresh: () {
+          return Future.value();
+        },
+        child: BlocConsumer(
+          bloc: GetIt.I<WeatherHomeCubit>(),
+          listener: (BuildContext context, state) {},
+          builder: (BuildContext context, Object? state) {
+            if (state is WeatherHomeInitial) {
+              return Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(21.0),
+                  child: Text(
+                    'Tap on the search button to check the weather in your city',
+                    style: Theme.of(context).textTheme.headlineLarge,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
-            ),
-            const SliverPadding(padding: EdgeInsets.only(top: 12, bottom: 12)),
-            const SliverToBoxAdapter(
-              child: Divider(height: 1),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-                child: Text(
-                  '4-day forecast',
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontStyle: FontStyle.italic,
+              );
+            }
+            if (state is WeatherLoading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is WeatherError) {
+              return Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(21.0),
+                  child: Text(
+                    state.message,
+                    style: Theme.of(context).textTheme.headlineLarge,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              );
+            } else if (state is WeatherLoaded) {
+              return CustomScrollView(
+                slivers: [
+                  SliverAppBar(
+                    leading: const SizedBox.shrink(),
+                    floating: false,
+                    pinned: true,
+                    expandedHeight: 200.0,
+                    flexibleSpace: FlexibleSpaceBar(
+                      title: Text(state.weather.name,
+                          style: Theme.of(context).textTheme.headlineLarge),
+                      background: Container(color: Colors.transparent),
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 21),
+                      child: CurrentWeatherDetailsWidget(
+                        main: state.weather.weather.first.main,
+                        feelsLike: state.weather.main.feelsLike,
+                        iconUrl:
+                            'https://openweathermap.org/img/wn/${state.weather.weather.first.icon}@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}',
+                        humanDate: 'Now',
+                        temp: state.weather.main.temp,
+                        tempMax: state.weather.main.tempMax,
+                        tempMin: state.weather.main.tempMin,
                       ),
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 21),
-                child: Card(
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ForecastItem(temp: 28, icon: '10n', humandDate: 'MON'),
-                    ForecastItem(temp: 28, icon: '10n', humandDate: 'TUE'),
-                    ForecastItem(temp: 28, icon: '10n', humandDate: 'WED'),
-                    ForecastItem(temp: 28, icon: '10n', humandDate: 'THU'),
-                  ],
-                )),
-              ),
-            ),
-          ],
+                    ),
+                  ),
+                  // const SliverPadding(
+                  //     padding: EdgeInsets.only(top: 12, bottom: 12)),
+                  // const SliverToBoxAdapter(
+                  //   child: Divider(height: 1),
+                  // ),
+                  // SliverToBoxAdapter(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.symmetric(
+                  //         vertical: 12, horizontal: 12),
+                  //     child: Text(
+                  //       '4-day forecast',
+                  //       style:
+                  //           Theme.of(context).textTheme.titleMedium?.copyWith(
+                  //                 fontStyle: FontStyle.italic,
+                  //               ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // const SliverToBoxAdapter(
+                  //   child: Padding(
+                  //     padding: EdgeInsets.symmetric(horizontal: 21),
+                  //     child: Card(
+                  //         child: Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //       children: [
+                  //         ForecastItem(
+                  //             temp: 28, icon: '10n', humandDate: 'MON'),
+                  //         ForecastItem(
+                  //             temp: 28, icon: '10n', humandDate: 'TUE'),
+                  //         ForecastItem(
+                  //             temp: 28, icon: '10n', humandDate: 'WED'),
+                  //         ForecastItem(
+                  //             temp: 28, icon: '10n', humandDate: 'THU'),
+                  //       ],
+                  //     )),
+                  //   ),
+                  // ),
+                ],
+              );
+            } else {
+              return const Text('Something went wrong');
+            }
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -90,7 +127,7 @@ class HomePage extends StatelessWidget {
           Navigator.of(context).push(_buildPopupSearchPageRoute()).then(
             (value) {
               // Do something with the search result
-              print(value);
+              GetIt.I<WeatherHomeCubit>().searchCity(value);
             },
           );
         },

@@ -24,6 +24,7 @@ class WeatherRepoImpl implements WeatherRepo {
       Map<String, dynamic> queryParameters = {};
       queryParameters.putIfAbsent('lat', () => lat.toString());
       queryParameters.putIfAbsent('lon', () => lon.toString());
+      queryParameters.putIfAbsent('units', () => 'metric');
       queryParameters.putIfAbsent('appid', () => dotenv.env['WEATHER_API_KEY']);
 
       uri = uri.replace(queryParameters: queryParameters);
@@ -38,7 +39,8 @@ class WeatherRepoImpl implements WeatherRepo {
       }
 
       throw Exception('Failed to load weather data');
-    } on TypeError catch (_) {
+    } on TypeError catch (e, s) {
+      developer.log('error', error: e, stackTrace: s);
       throw Exception('Type casting error');
     } catch (_) {
       rethrow;
@@ -57,6 +59,7 @@ class WeatherRepoImpl implements WeatherRepo {
       queryParameters.putIfAbsent('q', () => cityName);
       queryParameters.putIfAbsent('type', () => 'like');
       queryParameters.putIfAbsent('mode', () => 'json');
+      queryParameters.putIfAbsent('units', () => 'metric');
       queryParameters.putIfAbsent('appid', () => dotenv.env['WEATHER_API_KEY']);
 
       uri = uri.replace(queryParameters: queryParameters);

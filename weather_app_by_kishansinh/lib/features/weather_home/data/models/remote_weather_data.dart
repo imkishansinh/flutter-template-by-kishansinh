@@ -9,10 +9,10 @@ class RemoteWeatherData {
   final String base;
   final Main main;
   final int visibility;
-  final Wind wind;
-  final Clouds clouds;
+  // final Wind wind;
+  // final Clouds clouds;
   final int dt;
-  final Sys sys;
+  // final Sys sys;
   final int timezone;
   final int id;
   final String name;
@@ -24,10 +24,10 @@ class RemoteWeatherData {
     required this.base,
     required this.main,
     required this.visibility,
-    required this.wind,
-    required this.clouds,
+    // required this.wind,
+    // required this.clouds,
     required this.dt,
-    required this.sys,
+    // required this.sys,
     required this.timezone,
     required this.id,
     required this.name,
@@ -81,7 +81,7 @@ class Main {
   final double tempMin;
   @JsonKey(name: 'temp_max')
   final double tempMax;
-  final int pressure;
+  // final int pressure;
   final int humidity;
 
   Main({
@@ -89,7 +89,7 @@ class Main {
     required this.feelsLike,
     required this.tempMin,
     required this.tempMax,
-    required this.pressure,
+    // required this.pressure,
     required this.humidity,
   });
 
@@ -98,46 +98,46 @@ class Main {
   Map<String, dynamic> toJson() => _$MainToJson(this);
 }
 
-@JsonSerializable()
-class Wind {
-  final double speed;
-  final int deg;
+// @JsonSerializable()
+// class Wind {
+//   final double speed;
+//   final int deg;
 
-  Wind({required this.speed, required this.deg});
+//   Wind({required this.speed, required this.deg});
 
-  factory Wind.fromJson(Map<String, dynamic> json) => _$WindFromJson(json);
+//   factory Wind.fromJson(Map<String, dynamic> json) => _$WindFromJson(json);
 
-  Map<String, dynamic> toJson() => _$WindToJson(this);
-}
+//   Map<String, dynamic> toJson() => _$WindToJson(this);
+// }
 
-@JsonSerializable()
-class Clouds {
-  final int all;
+// @JsonSerializable()
+// class Clouds {
+//   final int all;
 
-  Clouds({required this.all});
+//   Clouds({required this.all});
 
-  factory Clouds.fromJson(Map<String, dynamic> json) => _$CloudsFromJson(json);
+//   factory Clouds.fromJson(Map<String, dynamic> json) => _$CloudsFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CloudsToJson(this);
-}
+//   Map<String, dynamic> toJson() => _$CloudsToJson(this);
+// }
 
-@JsonSerializable()
-class Sys {
-  final int type;
-  final int id;
-  final String country;
-  final int sunrise;
-  final int sunset;
+// @JsonSerializable()
+// class Sys {
+//   final int type;
+//   final int id;
+//   final String country;
+//   final int sunrise;
+//   final int sunset;
 
-  Sys({
-    required this.type,
-    required this.id,
-    required this.country,
-    required this.sunrise,
-    required this.sunset,
-  });
+//   Sys({
+//     required this.type,
+//     required this.id,
+//     required this.country,
+//     required this.sunrise,
+//     required this.sunset,
+//   });
 
-  factory Sys.fromJson(Map<String, dynamic> json) => _$SysFromJson(json);
+//   factory Sys.fromJson(Map<String, dynamic> json) => _$SysFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SysToJson(this);
-}
+//   Map<String, dynamic> toJson() => _$SysToJson(this);
+// }

@@ -1,15 +1,15 @@
 ### result via lat lon
 
-GET https://api.openweathermap.org/data/2.5/weather?lat=23.1667&lon=72.5833&appid= HTTP/1.1
+GET https://api.openweathermap.org/data/2.5/weather?lat=23.0333&lon=72.6167&units=metric&appid= HTTP/1.1
 
 ### result via city name
 
-GET https://api.openweathermap.org/data/2.5/weather?q=ranip&appid= HTTP/1.1
+GET https://api.openweathermap.org/data/2.5/weather?units=metric&q=rajkot&appid= HTTP/1.1
 
 ### last x days forecast
 
-GET https://api.openweathermap.org/data/2.5/forecast?lat=23.1077411&lon=72.5477262&cnt=7&appid= HTTP/1.1
+GET https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=23.0333&lon=72.6167&cnt=7&appid= HTTP/1.1
 
 ### Search city
 
-GET https://api.openweathermap.org/data/2.5/find?q=Adalaj&type=like&mode=json&appid=
+GET https://api.openweathermap.org/data/2.5/find?units=metric&q=ahmedabad&type=like&mode=json&appid=
