@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class CurrentWeatherDetailsWidget extends StatelessWidget {
   final String humanDate;
   final double temp;
-  final String icon;
+  final String iconUrl;
   final double tempMax;
   final double tempMin;
   final double feelsLike;
@@ -14,7 +13,7 @@ class CurrentWeatherDetailsWidget extends StatelessWidget {
     super.key,
     required this.humanDate,
     required this.temp,
-    required this.icon,
+    required this.iconUrl,
     required this.tempMax,
     required this.tempMin,
     required this.feelsLike,
@@ -45,7 +44,7 @@ class CurrentWeatherDetailsWidget extends StatelessWidget {
               width: 62,
               height: 62,
               child: Image.network(
-                'https://openweathermap.org/img/wn/$icon@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}',
+                iconUrl,
               ),
             ),
             const Spacer(),

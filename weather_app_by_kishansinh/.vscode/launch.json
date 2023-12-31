@@ -18,6 +18,12 @@
             ]
         },
         {
+            "name": "monarch",
+            "request": "launch",
+            "type": "node-terminal",
+            "command": "monarch run"
+        },
+        {
             "name": "weather_app_by_kishansinh",
             "request": "launch",
             "type": "dart"
