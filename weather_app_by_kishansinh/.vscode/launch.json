@@ -6,7 +6,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "weather_app_by_kishansinh (web)",
+            "name": "weather (web)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
@@ -24,18 +24,18 @@
             "command": "monarch run"
         },
         {
-            "name": "weather_app_by_kishansinh",
+            "name": "weather",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "weather_app_by_kishansinh (profile mode)",
+            "name": "weather (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "weather_app_by_kishansinh (release mode)",
+            "name": "weather (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

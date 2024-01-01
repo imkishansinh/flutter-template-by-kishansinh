@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () {
+          GetIt.I<WeatherHomeCubit>().searchCity();
           return Future.value();
         },
         child: BlocConsumer(
@@ -127,7 +128,7 @@ class HomePage extends StatelessWidget {
           Navigator.of(context).push(_buildPopupSearchPageRoute()).then(
             (value) {
               // Do something with the search result
-              GetIt.I<WeatherHomeCubit>().searchCity(value);
+              GetIt.I<WeatherHomeCubit>().searchCity(cityName: value);
             },
           );
         },

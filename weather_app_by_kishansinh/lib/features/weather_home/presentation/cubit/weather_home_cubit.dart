@@ -11,13 +11,14 @@ import '../../data/models/remote_weather_data.dart';
 part 'weather_home_state.dart';
 
 class WeatherHomeCubit extends Cubit<WeatherHomeState> {
+  String lastFetchedCity = '';
   WeatherHomeCubit() : super(WeatherHomeInitial());
 
-  Future<void> searchCity(String cityName) async {
+  Future<void> searchCity({String? cityName}) async {
     emit(WeatherLoading());
     try {
       Result<RemoteSearchCityResultData> result =
-          await GetIt.I.get<QueryCityUc>().call(cityName);
+          await GetIt.I.get<QueryCityUc>().call(cityName ?? lastFetchedCity);
 
       if (result.data != null && result.data!.list.isNotEmpty) {
         double lat = result.data?.list.first.coord.lat ?? 0;
@@ -28,6 +29,7 @@ class WeatherHomeCubit extends Cubit<WeatherHomeState> {
 
         if (weatherData.data == null) emit(const WeatherError('No data found'));
 
+        lastFetchedCity = cityName ?? lastFetchedCity;
         emit(WeatherLoaded(weatherData.data!));
       } else {
         emit(const WeatherError('No data found'));
