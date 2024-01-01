@@ -4,8 +4,7 @@ import 'package:weather_app_by_kishansinh/features/weather_home/presentation/wid
 Widget currentWeatherDetailsWidget() => const CurrentWeatherDetailsWidget(
       humanDate: 'Now',
       temp: 28,
-      iconUrl:
-          'https://openweathermap.org/img/wn/10d@2x.png?apiid=1b621b7b5aad7d157e415fdb49953fa9',
+      iconUrl: 'https://openweathermap.org/img/wn/10d@2x.png?apiid=',
       tempMax: 29,
       tempMin: 19,
       feelsLike: 28,
