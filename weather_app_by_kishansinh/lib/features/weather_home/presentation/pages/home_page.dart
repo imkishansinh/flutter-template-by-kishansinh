@@ -4,7 +4,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:weather_app_by_kishansinh/features/weather_home/presentation/cubit/weather_home_cubit.dart';
 import '../widgets/current_weather_details_widget.dart';
-import '../widgets/forecast_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
