@@ -77,43 +77,6 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // const SliverPadding(
-                  //     padding: EdgeInsets.only(top: 12, bottom: 12)),
-                  // const SliverToBoxAdapter(
-                  //   child: Divider(height: 1),
-                  // ),
-                  // SliverToBoxAdapter(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.symmetric(
-                  //         vertical: 12, horizontal: 12),
-                  //     child: Text(
-                  //       '4-day forecast',
-                  //       style:
-                  //           Theme.of(context).textTheme.titleMedium?.copyWith(
-                  //                 fontStyle: FontStyle.italic,
-                  //               ),
-                  //     ),
-                  //   ),
-                  // ),
-                  // const SliverToBoxAdapter(
-                  //   child: Padding(
-                  //     padding: EdgeInsets.symmetric(horizontal: 21),
-                  //     child: Card(
-                  //         child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //       children: [
-                  //         ForecastItem(
-                  //             temp: 28, icon: '10n', humandDate: 'MON'),
-                  //         ForecastItem(
-                  //             temp: 28, icon: '10n', humandDate: 'TUE'),
-                  //         ForecastItem(
-                  //             temp: 28, icon: '10n', humandDate: 'WED'),
-                  //         ForecastItem(
-                  //             temp: 28, icon: '10n', humandDate: 'THU'),
-                  //       ],
-                  //     )),
-                  //   ),
-                  // ),
                 ],
               );
             } else {

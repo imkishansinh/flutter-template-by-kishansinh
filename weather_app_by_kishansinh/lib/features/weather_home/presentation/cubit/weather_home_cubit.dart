@@ -18,6 +18,10 @@ class WeatherHomeCubit extends Cubit<WeatherHomeState> {
   Future<void> searchCity({String? cityName}) async {
     emit(WeatherLoading());
     try {
+      if ((cityName ?? '').trim().contains(' ')) {
+        emit(const WeatherError('Is your city name contain spaces?'));
+        return;
+      }
       // ok let's see this city is valid or not
       Result<RemoteSearchCityResultData> cityExistOrNotResult =
           await GetIt.I.get<QueryCityUc>().call(cityName ?? lastFetchedCity);
