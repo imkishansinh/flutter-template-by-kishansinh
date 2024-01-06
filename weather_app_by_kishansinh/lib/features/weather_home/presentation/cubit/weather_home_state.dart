@@ -12,7 +12,7 @@ class WeatherHomeInitial extends WeatherHomeState {}
 class WeatherLoading extends WeatherHomeState {}
 
 class WeatherLoaded extends WeatherHomeState {
-  final RemoteWeatherData weather;
+  final UiWeatherData weather;
 
   const WeatherLoaded(this.weather);
 

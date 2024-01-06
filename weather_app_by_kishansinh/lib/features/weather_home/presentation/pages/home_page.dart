@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                     pinned: true,
                     expandedHeight: 200.0,
                     flexibleSpace: FlexibleSpaceBar(
-                      title: Text(state.weather.name,
+                      title: Text(state.weather.cityName,
                           style: Theme.of(context).textTheme.headlineLarge),
                       background: Container(color: Colors.transparent),
                     ),
@@ -66,14 +66,14 @@ class HomePage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 21),
                       child: CurrentWeatherDetailsWidget(
-                        main: state.weather.weather.first.main,
-                        feelsLike: state.weather.main.feelsLike,
+                        main: state.weather.mainStr,
+                        feelsLike: state.weather.feelLike,
                         iconUrl:
-                            'https://openweathermap.org/img/wn/${state.weather.weather.first.icon}@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}',
+                            'https://openweathermap.org/img/wn/${state.weather.iconName}@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}',
                         humanDate: 'Now',
-                        temp: state.weather.main.temp,
-                        tempMax: state.weather.main.tempMax,
-                        tempMin: state.weather.main.tempMin,
+                        temp: state.weather.temp,
+                        tempMax: state.weather.maxTemp,
+                        tempMin: state.weather.minTemp,
                       ),
                     ),
                   ),

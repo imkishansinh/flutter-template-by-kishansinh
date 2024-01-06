@@ -17,7 +17,9 @@ class WeatherRepoImpl implements WeatherRepo {
   @override
   Future<RemoteWeatherData> getWeather(num lat, num lon) async {
     try {
-      if (lat <= 0 || lon <= 0) throw Exception('Invalid coordinates');
+      if (!(lat >= -90.0 && lat <= 90.0) || !(lon >= -180.0 && lon <= 180.0)) {
+        throw Exception('Invalid coordinates');
+      }
 
       Uri uri = Uri.parse('$baseUrl/weather');
 
