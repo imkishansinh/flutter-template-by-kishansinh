@@ -32,7 +32,7 @@ void main() {
       final weatherRepoImpl = WeatherRepoImpl('${dotenv.env['BASE_URL']}');
 
       // Call the getWeather method with a valid latitude and longitude.
-      final weatherData = weatherRepoImpl.getWeather(0, 0);
+      final weatherData = weatherRepoImpl.getWeather(-91, 0);
 
       // Call the getWeather method with an invalid latitude or longitude.
       expect(() => weatherData, throwsA(isA<Exception>()));

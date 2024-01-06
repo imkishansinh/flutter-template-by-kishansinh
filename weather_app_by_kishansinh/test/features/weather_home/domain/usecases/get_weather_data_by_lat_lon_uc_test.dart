@@ -31,7 +31,7 @@ void main() {
 
     test('should return an error message on failure', () async {
       // Arrange
-      num lat = 0;
+      num lat = -91;
       num lon = 0;
 
       // Create an instance of the WeatherRepoImpl class.
