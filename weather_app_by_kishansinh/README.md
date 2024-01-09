@@ -8,6 +8,7 @@
 - [Steps to build and run the project](#steps-to-build-and-run-the-project)
 - [How to Contribute](#how-to-contribute)
 - [Contact Information](#contact-information)
+- [Wiki](#wiki)
 
 ## Introduction 🎯
 
@@ -58,5 +59,9 @@ For any queries or discussions, feel free to reach out to me on:
 
 - [Twitter](https://x.com/imkishansinh)
 - [LinkedIn](https://www.linkedin.com/in/kishansinhparmar/)
+
+## Wiki 📖
+
+For more detailed information about the project, please refer to our [Wiki](https://github.com/imkishansinh/flutter-template-by-kishansinh/wiki). There, you'll find comprehensive documentation, tutorials, and other resources that can help you understand and contribute to the project better.
 
 Happy contributing! 😄
