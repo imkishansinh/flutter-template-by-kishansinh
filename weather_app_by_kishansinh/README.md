@@ -1,15 +1,15 @@
-# Weather app by kishansinh.com
+# Weather app by kishansinh.com 🌦️
 
 ![Project structure](./repo_assets/image_01.png)
 
-## Table of Contents
+## Table of Contents 📚
 
 - [Introduction](#introduction)
 - [Steps to build and run the project](#steps-to-build-and-run-the-project)
 - [How to Contribute](#how-to-contribute)
 - [Contact Information](#contact-information)
 
-## Introduction
+## Introduction 🎯
 
 This is a Flutter project that provides weather information.
 
@@ -18,21 +18,21 @@ This is a Flutter project that provides weather information.
 - The project demonstrates how to use a weather API, providing practical examples of API interaction.
 - It shows how to convert API responses into UI level models, facilitating easy display of data in the user interface.
 
-## Steps to build and run the project
+## Steps to build and run the project 🚀
 
 1. Clone the Flutter Project:
-    - Use the command `git clone https://github.com/imkishansinh/flutter-template-by-kishansinh.git` to download the project from the GitHub repository.
+   - Use the command `git clone https://github.com/imkishansinh/flutter-template-by-kishansinh.git` to download the project from the GitHub repository.
 
 2. Install Dependencies:
-    - Navigate to the project directory and execute the command `flutter pub get` to install the required dependencies.
+   - Navigate to the project directory and execute the command `flutter pub get` to install the required dependencies.
 
 3. Build the Project:
-    - Run the command `flutter pub run build_runner build` to generate necessary files for the project.
+   - Run the command `flutter pub run build_runner build` to generate necessary files for the project.
 
 4. Run the App:
-    - Connect a device or emulator and run the app using the command `flutter run` or through your IDE.
+   - Connect a device or emulator and run the app using the command `flutter run` or through your IDE.
 
-## How to Contribute
+## How to Contribute 🤝
 
 We welcome contributions from everyone! Here are some steps to follow:
 
@@ -52,11 +52,11 @@ We welcome contributions from everyone! Here are some steps to follow:
 
 Remember, before submitting a pull request, ensure that your code passes all tests and does not introduce any bugs. Also, make sure to provide a detailed description of the changes you've made in the pull request.
 
-## Contact Information
+## Contact Information 📧
 
 For any queries or discussions, feel free to reach out to me on:
 
 - [Twitter](https://x.com/imkishansinh)
 - [LinkedIn](https://www.linkedin.com/in/kishansinhparmar/)
 
-Happy contributing!
+Happy contributing! 😄
