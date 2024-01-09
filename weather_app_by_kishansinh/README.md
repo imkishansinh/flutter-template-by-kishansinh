@@ -1,5 +1,14 @@
 # Weather app by kishansinh.com
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Steps to build and run the project](#steps-to-build-and-run-the-project)
+- [How to Contribute](#how-to-contribute)
+- [Contact Information](#contact-information)
+
+## Introduction
+
 This is a Flutter project that provides weather information.
 
 - The project follows clean architecture principles, separating concerns into distinct layers for better organization and maintainability.
@@ -40,6 +49,8 @@ We welcome contributions from everyone! Here are some steps to follow:
 7. **Submit a Pull Request**: Go back to your forked repository on GitHub and click on 'New pull request'. Select your branch and submit the pull request.
 
 Remember, before submitting a pull request, ensure that your code passes all tests and does not introduce any bugs. Also, make sure to provide a detailed description of the changes you've made in the pull request.
+
+## Contact Information
 
 For any queries or discussions, feel free to reach out to me on:
 
