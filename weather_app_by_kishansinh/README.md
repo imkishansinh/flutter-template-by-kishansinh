@@ -1,5 +1,7 @@
 # Weather app by kishansinh.com
 
+![Project structure](./repo_assets/image_01.png)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
