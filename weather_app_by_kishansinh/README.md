@@ -33,6 +33,19 @@ This is a Flutter project that provides weather information.
 4. Run the App:
    - Connect a device or emulator and run the app using the command `flutter run` or through your IDE.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="./screenshots/home_page_blank_state.png" width="200"/></td>
+    <td><img src="./screenshots/home_page.png" width="200"/></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshots/search_city.png" width="200"/></td>
+    <td><img src="./screenshots/city_not_found.png" width="200"/></td>
+  </tr>
+</table>
+
 ## How to Contribute 🤝
 
 We welcome contributions from everyone! Here are some steps to follow:
