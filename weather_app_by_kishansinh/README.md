@@ -46,6 +46,15 @@ This is a Flutter project that provides weather information.
   </tr>
 </table>
 
+## Soluctions I provided
+
+1. **Seprate of concerns**: Data, domain and presentation are seprated with his own concerns. All the layesrs are tested visit test folder.
+2. **Ui and Data models**: UI and data models are different so only UI required data is passing to UI layers. Check **RemoteWeatherData** and **UiWeatherData**.
+3. **Exceptions**: Handled every layer exceptions check **WeatherRepoImpl**, **QueryCityUc** and **WeatherHomeCubit**
+4. **Widgets**: Widgets are pure widgets just like flutter's own widgets. Check lib/features/weather_home/presentations/widgets
+5. **Test Driven Development(TDD)**: I cover all the layer are testable except the widgets I will try to add once I've proper understanding about widger testing.
+6. **Many more**: Many more small-small soluctions are inside this repository.
+
 ## How to Contribute 🤝
 
 We welcome contributions from everyone! Here are some steps to follow:
