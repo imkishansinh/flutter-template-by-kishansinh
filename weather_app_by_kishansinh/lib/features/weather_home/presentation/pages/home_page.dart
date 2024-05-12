@@ -146,7 +146,7 @@ class SearchPage extends StatelessWidget {
               ),
               onSubmitted: (value) {
                 // Close the search page when the user submits the search
-                Navigator.of(context).pop(value);
+                Navigator.of(context).pop(value.trim());
               },
             ),
           ],
