@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:weather_app_by_kishansinh/features/weather_home/presentation/cubit/weather_home_cubit.dart';
 import '../widgets/current_weather_details_widget.dart';
+import 'search_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -120,38 +121,6 @@ class HomePage extends StatelessWidget {
           child: child,
         );
       },
-    );
-  }
-}
-
-class SearchPage extends StatelessWidget {
-  const SearchPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Search your city'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            TextField(
-              autofocus: true,
-              decoration: const InputDecoration(
-                hintText: 'Type your city name here...',
-                border: OutlineInputBorder(),
-              ),
-              onSubmitted: (value) {
-                // Close the search page when the user submits the search
-                Navigator.of(context).pop(value.trim());
-              },
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
