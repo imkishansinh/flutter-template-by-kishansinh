@@ -10,15 +10,18 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: TextButton(
-            onPressed: () => {},
-            style: TextButton.styleFrom(
-                foregroundColor: getPrimaryColor(),
-                backgroundColor: getBackgroundColor(),
-                side: style == ButtonStyles.secondary
-                    ? const BorderSide(width: 0, color: Colors.black87)
-                    : null),
-            child: Text(text)));
+      child: TextButton(
+        onPressed: () => {},
+        style: TextButton.styleFrom(
+          foregroundColor: getPrimaryColor(),
+          backgroundColor: getBackgroundColor(),
+          side: style == ButtonStyles.secondary
+              ? const BorderSide(width: 0, color: Colors.black87)
+              : null,
+        ),
+        child: Text(text),
+      ),
+    );
   }
 
   Color getPrimaryColor() {

@@ -1,14 +1,13 @@
 import 'dart:convert';
+import 'dart:developer' as developer;
 import 'dart:io';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
-import '../../domain/repositories/weather_repo.dart';
 import 'package:http/http.dart';
 
+import '../../domain/repositories/weather_repo.dart';
 import '../models/remote_search_city_result_data.dart';
 import '../models/remote_weather_data.dart';
-import 'dart:developer' as developer;
 
 class WeatherRepoImpl implements WeatherRepo {
   final String baseUrl;
@@ -51,7 +50,8 @@ class WeatherRepoImpl implements WeatherRepo {
 
   @override
   Future<RemoteSearchCityResultData> getWeatherByCityName(
-      String cityName) async {
+    String cityName,
+  ) async {
     try {
       if (cityName.isEmpty) throw Exception('Invalid city name');
 

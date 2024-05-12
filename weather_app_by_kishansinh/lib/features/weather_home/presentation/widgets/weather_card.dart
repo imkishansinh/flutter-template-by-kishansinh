@@ -40,7 +40,8 @@ class WeatherCard extends StatelessWidget {
           ),
           const Spacer(),
           Image.network(
-              "https://openweathermap.org/img/wn/$weatherIconName@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}"),
+            "https://openweathermap.org/img/wn/$weatherIconName@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}",
+          ),
         ]),
       ),
     );

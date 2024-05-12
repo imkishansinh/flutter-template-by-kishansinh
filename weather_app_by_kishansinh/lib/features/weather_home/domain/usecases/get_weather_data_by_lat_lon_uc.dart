@@ -20,14 +20,20 @@ class GetWeatherDataByLatLongUc {
       );
     } on Exception catch (e, s) {
       // Log exception
-      developer.log('error while GetWeatherDataByLatLongUc',
-          error: e, stackTrace: s);
+      developer.log(
+        'error while GetWeatherDataByLatLongUc',
+        error: e,
+        stackTrace: s,
+      );
 
       return Result(error: e.toString());
     } catch (e, s) {
       // Log exception
-      developer.log('error while GetWeatherDataByLatLongUc',
-          error: e, stackTrace: s);
+      developer.log(
+        'error while GetWeatherDataByLatLongUc',
+        error: e,
+        stackTrace: s,
+      );
 
       return Result(error: 'Something went wrong');
     }

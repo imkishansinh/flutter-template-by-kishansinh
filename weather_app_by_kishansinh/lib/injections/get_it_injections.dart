@@ -7,13 +7,16 @@ import 'package:weather_app_by_kishansinh/features/weather_home/presentation/cub
 
 void setupDependencyInjection() {
   GetIt.instance.registerSingleton<WeatherRepoImpl>(
-      WeatherRepoImpl(dotenv.env['BASE_URL'] ?? ''));
+    WeatherRepoImpl(dotenv.env['BASE_URL'] ?? ''),
+  );
 
   GetIt.instance.registerSingleton<GetWeatherDataByLatLongUc>(
-      GetWeatherDataByLatLongUc(GetIt.instance<WeatherRepoImpl>()));
+    GetWeatherDataByLatLongUc(GetIt.instance<WeatherRepoImpl>()),
+  );
 
   GetIt.instance.registerSingleton<QueryCityUc>(
-      QueryCityUc(GetIt.instance<WeatherRepoImpl>()));
+    QueryCityUc(GetIt.instance<WeatherRepoImpl>()),
+  );
 
   GetIt.instance.registerSingleton<WeatherHomeCubit>(WeatherHomeCubit());
 }

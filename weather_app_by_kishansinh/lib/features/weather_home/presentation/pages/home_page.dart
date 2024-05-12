@@ -57,8 +57,10 @@ class HomePage extends StatelessWidget {
                     pinned: true,
                     expandedHeight: 200.0,
                     flexibleSpace: FlexibleSpaceBar(
-                      title: Text(state.weather.cityName,
-                          style: Theme.of(context).textTheme.headlineLarge),
+                      title: Text(
+                        state.weather.cityName,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
                       background: Container(color: Colors.transparent),
                     ),
                   ),

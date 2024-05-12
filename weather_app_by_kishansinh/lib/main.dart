@@ -6,7 +6,7 @@ import 'injections/get_it_injections.dart';
 
 void main() async {
   // Load environment variables
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: '.env');
   // Setup dependency injection
   setupDependencyInjection();
 
