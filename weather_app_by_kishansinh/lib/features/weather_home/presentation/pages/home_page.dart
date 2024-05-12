@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:weather_app_by_kishansinh/features/weather_home/presentation/cubit/weather_home_cubit.dart';
+import 'package:weather_app_by_kishansinh/utils/app_const.dart';
+import 'package:weather_app_by_kishansinh/utils/helper_functions.dart';
 import '../widgets/current_weather_details_widget.dart';
 import 'search_page.dart';
 
@@ -71,7 +73,10 @@ class HomePage extends StatelessWidget {
                         main: state.weather.mainStr,
                         feelsLike: state.weather.feelLike,
                         iconUrl:
-                            'https://openweathermap.org/img/wn/${state.weather.iconName}@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}',
+                            replaceWithParams(AppConsts.weatherIconUrlScheme, [
+                          state.weather.iconName,
+                          dotenv.env['WEATHER_API_KEY'].toString(),
+                        ]),
                         humanDate: 'Now',
                         temp: state.weather.temp,
                         tempMax: state.weather.maxTemp,

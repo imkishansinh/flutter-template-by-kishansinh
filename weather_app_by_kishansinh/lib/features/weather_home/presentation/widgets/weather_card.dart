@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:weather_app_by_kishansinh/utils/app_const.dart';
+import 'package:weather_app_by_kishansinh/utils/helper_functions.dart';
 
 class WeatherCard extends StatelessWidget {
   final String city;
@@ -20,29 +22,34 @@ class WeatherCard extends StatelessWidget {
     return Card(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 21),
-        child: Row(children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                city,
-                style: Theme.of(context).textTheme.titleLarge,
+        child: Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  city,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                Text(
+                  '${celceius.toString()} °C',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                Text(
+                  'Feels like ${celceius.toString()} °C',
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+              ],
+            ),
+            const Spacer(),
+            Image.network(
+              replaceWithParams(
+                AppConsts.weatherIconUrlScheme,
+                [weatherIconName, dotenv.env['WEATHER_API_KEY'].toString()],
               ),
-              Text(
-                '${celceius.toString()} °C',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              Text(
-                'Feels like ${celceius.toString()} °C',
-                style: Theme.of(context).textTheme.titleSmall,
-              ),
-            ],
-          ),
-          const Spacer(),
-          Image.network(
-            "https://openweathermap.org/img/wn/$weatherIconName@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}",
-          ),
-        ]),
+            ),
+          ],
+        ),
       ),
     );
   }

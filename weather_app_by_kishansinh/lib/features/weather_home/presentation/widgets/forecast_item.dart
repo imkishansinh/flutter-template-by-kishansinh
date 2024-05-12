@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:weather_app_by_kishansinh/utils/app_const.dart';
+import 'package:weather_app_by_kishansinh/utils/helper_functions.dart';
 
 class ForecastItem extends StatelessWidget {
   final double temp;
@@ -31,7 +33,10 @@ class ForecastItem extends StatelessWidget {
             width: 46,
             height: 46,
             child: Image.network(
-              'https://openweathermap.org/img/wn/$icon@2x.png?apiid=${dotenv.env['WEATHER_API_KEY']}}',
+              replaceWithParams(
+                AppConsts.weatherIconUrlScheme,
+                [icon, dotenv.env['WEATHER_API_KEY'].toString()],
+              ),
             ),
           ),
           Text(
