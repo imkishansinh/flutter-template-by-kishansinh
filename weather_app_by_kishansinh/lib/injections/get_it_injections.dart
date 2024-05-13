@@ -18,5 +18,7 @@ void setupDependencyInjection() {
     QueryCityUc(GetIt.instance<WeatherRepoImpl>()),
   );
 
-  GetIt.instance.registerSingleton<WeatherHomeCubit>(WeatherHomeCubit());
+  GetIt.instance.registerSingleton<WeatherHomeCubit>(
+    WeatherHomeCubit(),
+  );
 }
